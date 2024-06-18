@@ -1,0 +1,24 @@
+{
+  "id": 1,
+  "progress": 0,
+  "tasks": [
+    {
+      "id": 1,
+      "type": "speech_card",
+      "instruction": "Instrucción 1",
+      "sentence": "Oración 1"
+    },
+    {
+      "id": 2,
+      "type": "speech_card",
+      "instruction": "Instrucción 2",
+      "sentence": "Oración 2"
+    },
+    {
+      "id": 3,
+      "type": "speech_card",
+      "instruction": "Instrucción 3",
+      "sentence": "Oración 3"
+    }
+  ]
+}
