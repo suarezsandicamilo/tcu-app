@@ -4,10 +4,11 @@ import { Dimensions } from 'react-native';
 
 import * as Speech from 'expo-speech';
 
-import { IconButton, SpeechCard } from '../components';
+import { IconButton, SpeechCard } from './../components';
 
 type Props = {
   instruction?: string;
+  picture?: string;
   sentence?: string;
   next?: () => void;
 };
@@ -23,10 +24,7 @@ export const SpeechCardTask = (props: Props) => {
           });
         }}
       />
-      <SpeechCard
-        picture={require(`./../../assets/pictures/240x240.png`)}
-        sentence={props.sentence}
-      />
+      <SpeechCard picture={props.picture} sentence={props.sentence} />
       <IconButton
         name='arrow-right'
         onPress={() => {

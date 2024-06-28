@@ -4,6 +4,8 @@ import { Image, Pressable, StyleSheet } from 'react-native';
 
 import * as Speech from 'expo-speech';
 
+import { Pictures } from './../../assets/pictures';
+
 const styles = StyleSheet.create({
   image: {
     borderColor: '#bfbfbf',
@@ -16,11 +18,13 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-  picture?: number;
+  picture?: string;
   sentence?: string;
 };
 
 export const SpeechCard = (props: Props) => {
+  const source = Pictures[props.picture ?? '240x240'];
+
   return (
     <Pressable
       onPress={() => {
@@ -29,7 +33,7 @@ export const SpeechCard = (props: Props) => {
         });
       }}
     >
-      <Image source={props.picture} style={styles.image} />
+      <Image source={source} style={styles.image} />
     </Pressable>
   );
 };

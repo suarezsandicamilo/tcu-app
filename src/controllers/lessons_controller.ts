@@ -4,7 +4,7 @@ import z from 'zod';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-import { Lessons } from './../../data/lessons';
+import { Lessons } from './../../data';
 
 import { TaskSchema } from './../tasks/task';
 
