@@ -27,6 +27,7 @@ type Props = {
   picture?: string;
   sentence?: string;
   style?: StyleProp<ImageStyle>;
+  onPress?: () => void;
 };
 
 export const SpeechCard = (props: Props) => {
@@ -38,6 +39,10 @@ export const SpeechCard = (props: Props) => {
         Speech.speak(props.sentence ?? '', {
           language: 'es',
         });
+
+        if (props.onPress) {
+          props.onPress();
+        }
       }}
     >
       <Image source={source} style={[styles.image, props.style]} />
