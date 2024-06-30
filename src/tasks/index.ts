@@ -1,4 +1,4 @@
 //
 
-export * from './speech_card_task';
+export * from './morpheme';
 export * from './task_factory';

@@ -4,7 +4,7 @@ import { Dimensions } from 'react-native';
 
 import * as Speech from 'expo-speech';
 
-import { IconButton, SpeechCard } from './../components';
+import { IconButton, SpeechCard } from '../../components';
 
 type Props = {
   instruction?: string;
@@ -13,7 +13,7 @@ type Props = {
   next?: () => void;
 };
 
-export const SpeechCardTask = (props: Props) => {
+export const MorphemeTapCardTask = (props: Props) => {
   return (
     <>
       <IconButton
