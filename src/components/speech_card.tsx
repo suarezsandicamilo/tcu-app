@@ -1,6 +1,12 @@
 //
 
-import { Image, Pressable, StyleSheet } from 'react-native';
+import {
+  Image,
+  ImageStyle,
+  Pressable,
+  StyleProp,
+  StyleSheet,
+} from 'react-native';
 
 import * as Speech from 'expo-speech';
 
@@ -20,6 +26,7 @@ const styles = StyleSheet.create({
 type Props = {
   picture?: string;
   sentence?: string;
+  style?: StyleProp<ImageStyle>;
 };
 
 export const SpeechCard = (props: Props) => {
@@ -33,7 +40,7 @@ export const SpeechCard = (props: Props) => {
         });
       }}
     >
-      <Image source={source} style={styles.image} />
+      <Image source={source} style={[styles.image, props.style]} />
     </Pressable>
   );
 };
