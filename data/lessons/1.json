@@ -11,10 +11,34 @@
     },
     {
       "id": 2,
-      "type": "morpheme/tap_card",
+      "type": "morpheme/select_card",
       "instruction": "Instrucción 2",
-      "picture": "",
-      "sentence": "Oración 2"
+      "options": [
+        {
+          "id": 1,
+          "correct": true,
+          "picture": "240x240",
+          "sentence": "Oración 1"
+        },
+        {
+          "id": 2,
+          "correct": false,
+          "picture": "",
+          "sentence": "Oración 2"
+        },
+        {
+          "id": 3,
+          "correct": false,
+          "picture": "",
+          "sentence": "Oración 3"
+        },
+        {
+          "id": 4,
+          "correct": false,
+          "picture": "",
+          "sentence": "Oración 4"
+        }
+      ]
     },
     {
       "id": 3,
