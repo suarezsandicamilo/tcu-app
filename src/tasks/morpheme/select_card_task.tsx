@@ -2,11 +2,9 @@
 
 import { StyleSheet, View } from 'react-native';
 
-import * as Speech from 'expo-speech';
+import { SpeechCard } from './../../components';
 
-import { IconButton, SpeechCard } from '../../components';
-
-import { shuffle } from './../../util';
+import { shuffle, speak } from './../../util';
 
 const styles = StyleSheet.create({
   card: {
@@ -20,58 +18,41 @@ const styles = StyleSheet.create({
   },
 });
 
+type Option = {
+  id: string;
+  correct?: boolean;
+  picture?: string;
+  sentence?: string;
+};
+
 type Props = {
   instruction?: string;
-  options?: {
-    id: string;
-    correct?: boolean;
-    picture?: string;
-    sentence?: string;
-  }[];
+  options?: Option[];
   next?: () => void;
 };
 
 export const MorphemeSelectCardTask = (props: Props) => {
   const options = shuffle(props.options ?? []);
 
+  speak(props.instruction)();
+
   return (
-    <>
-      <IconButton
-        name='info'
-        onPress={() => {
-          Speech.speak(props.instruction, {
-            language: 'es',
-          });
-        }}
-      />
-      <View style={styles.container}>
-        {options.map((option) => {
-          return (
-            <SpeechCard
-              key={option.id}
-              picture={option.picture}
-              sentence={option.sentence}
-              style={styles.card}
-              onPress={async () => {
-                if (option.correct) {
-                  Speech.speak('Correcto', {
-                    language: 'es',
-                    onDone: () => {
-                      if (props.next) {
-                        props.next();
-                      }
-                    },
-                  });
-                } else {
-                  Speech.speak('Incorrecto', {
-                    language: 'es',
-                  });
-                }
-              }}
-            />
-          );
-        })}
-      </View>
-    </>
+    <View style={styles.container}>
+      {options.map((option) => {
+        return (
+          <SpeechCard
+            key={option.id}
+            picture={option.picture}
+            sentence={option.sentence}
+            style={styles.card}
+            onPress={() => {
+              if (option.correct) {
+                speak('', props.next)();
+              }
+            }}
+          />
+        );
+      })}
+    </View>
   );
 };

@@ -1,10 +1,8 @@
 //
 
-import { Dimensions } from 'react-native';
+import { SpeechCard } from './../../components';
 
-import * as Speech from 'expo-speech';
-
-import { IconButton, SpeechCard } from '../../components';
+import { speak } from './../../util';
 
 type Props = {
   instruction?: string;
@@ -14,29 +12,13 @@ type Props = {
 };
 
 export const MorphemeTapCardTask = (props: Props) => {
+  speak(props.instruction)();
+
   return (
-    <>
-      <IconButton
-        name='info'
-        onPress={() => {
-          Speech.speak(props.instruction, {
-            language: 'es',
-          });
-        }}
-      />
-      <SpeechCard picture={props.picture} sentence={props.sentence} />
-      <IconButton
-        name='arrow-right'
-        onPress={() => {
-          if (props.next) {
-            props.next();
-          }
-        }}
-        style={{
-          height: 60,
-          width: Dimensions.get('screen').width - 64,
-        }}
-      />
-    </>
+    <SpeechCard
+      picture={props.picture}
+      sentence={props.sentence}
+      onPress={speak('', props.next)}
+    />
   );
 };
