@@ -10,7 +10,7 @@ import {
   GestureHandlerRootView,
 } from 'react-native-gesture-handler';
 
-import { LessonsPath } from './../components';
+import { LessonsPath } from '@/components';
 
 const styles = StyleSheet.create({
   container: {

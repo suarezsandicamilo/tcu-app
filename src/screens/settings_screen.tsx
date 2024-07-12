@@ -4,14 +4,9 @@ import { SafeAreaView, StyleSheet, View } from 'react-native';
 
 import { useRouter } from 'expo-router';
 
-import { IconButton } from './../components';
+import { IconButton } from '@/components';
 
-import {
-  Lesson,
-  LessonsController,
-  Task,
-  TasksController,
-} from './../controllers';
+import { LessonsController, TasksController } from '@/controllers';
 
 const styles = StyleSheet.create({
   container_1: {

@@ -1,6 +1,6 @@
 //
 
-import { SpeechCard } from './../../components';
+import { SpeechCard } from '@/components';
 
 import { speak } from './../../util';
 

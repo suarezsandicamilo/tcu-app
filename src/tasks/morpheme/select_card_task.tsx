@@ -2,7 +2,7 @@
 
 import { StyleSheet, View } from 'react-native';
 
-import { SpeechCard } from './../../components';
+import { SpeechCard } from '@/components';
 
 import { shuffle, speak } from './../../util';
 

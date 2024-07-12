@@ -2,7 +2,7 @@
 
 import { MorphemeSelectCardTask, MorphemeTapCardTask } from './morpheme';
 
-import { Task } from './../controllers';
+import { Task } from '@/controllers';
 
 export class TaskFactory {
   static create(task?: Task, next?: () => void): JSX.Element {

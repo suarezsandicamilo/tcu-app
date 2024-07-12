@@ -6,7 +6,7 @@ import { Controller } from './controller';
 
 import { Task, TasksController } from './tasks_controller';
 
-import { Lessons } from './../../data';
+import { Lessons } from '@/data';
 
 export const LessonSchema = z.object({
   id: z.string(),

@@ -1,5 +1,5 @@
 //
 
-import { LessonScreen } from './../src/screens';
+import { LessonScreen } from '@/screens';
 
 export default LessonScreen;

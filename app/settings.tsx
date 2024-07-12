@@ -1,5 +1,5 @@
 //
 
-import { SettingsScreen } from './../src/screens';
+import { SettingsScreen } from '@/screens';
 
 export default SettingsScreen;

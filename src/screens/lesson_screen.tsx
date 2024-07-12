@@ -6,11 +6,11 @@ import { SafeAreaView, StyleSheet, View } from 'react-native';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
 
-import { IconButton, ProgressBar } from './../components';
+import { IconButton, ProgressBar } from '@/components';
 
-import { Lesson, LessonsController, Task } from './../controllers';
+import { Lesson, LessonsController, Task } from '@/controllers';
 
-import { TaskFactory } from './../tasks';
+import { TaskFactory } from '@/tasks';
 
 const styles = StyleSheet.create({
   container_1: {

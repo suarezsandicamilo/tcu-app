@@ -4,7 +4,7 @@ import * as z from 'zod';
 
 import { Controller } from './controller';
 
-import { Tasks } from './../../data';
+import { Tasks } from '@/data';
 
 export const TaskSchema = z.object({
   id: z.string(),
