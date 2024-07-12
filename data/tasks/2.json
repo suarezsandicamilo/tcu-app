@@ -1,0 +1,33 @@
+{
+  "id": "2",
+  "type": "morpheme/select_card",
+  "data": {
+    "instruction": "Instrucción 2",
+    "options": [
+      {
+        "id": "1",
+        "correct": true,
+        "picture": "240x240",
+        "sentence": "Oración 1"
+      },
+      {
+        "id": "2",
+        "correct": false,
+        "picture": "",
+        "sentence": "Oración 2"
+      },
+      {
+        "id": "3",
+        "correct": false,
+        "picture": "",
+        "sentence": "Oración 3"
+      },
+      {
+        "id": "4",
+        "correct": false,
+        "picture": "",
+        "sentence": "Oración 4"
+      }
+    ]
+  }
+}

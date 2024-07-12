@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "type": "morpheme/tap_card",
+  "data": {
+    "instruction": "Instrucción 1",
+    "picture": "",
+    "sentence": "Oración 1"
+  }
+}
