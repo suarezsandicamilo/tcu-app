@@ -6,7 +6,12 @@ import { useRouter } from 'expo-router';
 
 import { IconButton } from './../components';
 
-import { LessonsController } from './../controllers';
+import {
+  Lesson,
+  LessonsController,
+  Task,
+  TasksController,
+} from './../controllers';
 
 const styles = StyleSheet.create({
   container_1: {
@@ -49,7 +54,14 @@ export const SettingsScreen = () => {
           name='database'
           onPress={async () => {
             try {
-              await LessonsController.sync();
+              const controllers = [
+                new LessonsController(),
+                new TasksController(),
+              ];
+
+              for (const controller of controllers) {
+                await controller.sync();
+              }
 
               console.log('Sync!');
             } catch (error) {

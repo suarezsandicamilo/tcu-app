@@ -2,17 +2,21 @@
 
 import { MorphemeSelectCardTask, MorphemeTapCardTask } from './morpheme';
 
-import { Task } from './task';
+import { Task } from './../controllers';
 
 export class TaskFactory {
-  static create(task: Task, next?: () => void): JSX.Element {
+  static create(task?: Task, next?: () => void): JSX.Element {
+    if (!task) {
+      return <></>;
+    }
+
     switch (task.type) {
       case 'morpheme/select_card':
-        return <MorphemeSelectCardTask next={next} {...task} />;
+        return <MorphemeSelectCardTask next={next} {...task.data} />;
       case 'morpheme/tap_card':
-        return <MorphemeTapCardTask next={next} {...task} />;
+        return <MorphemeTapCardTask next={next} {...task.data} />;
       default:
-        throw new Error(`Unknown task type: ${task.type}`);
+        return <></>;
     }
   }
 }

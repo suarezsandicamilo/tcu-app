@@ -37,24 +37,6 @@ export const LessonsPath = () => {
             router.navigate(`/lesson?id=2`);
           }}
         />
-        <IconButton
-          style={styles.button}
-          onPress={() => {
-            router.navigate(`/lesson?id=3`);
-          }}
-        />
-        <IconButton
-          style={styles.button}
-          onPress={() => {
-            router.navigate(`/lesson?id=4`);
-          }}
-        />
-        <IconButton
-          style={styles.button}
-          onPress={() => {
-            router.navigate(`/lesson?id=5`);
-          }}
-        />
       </View>
     </ScrollView>
   );

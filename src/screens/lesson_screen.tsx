@@ -8,7 +8,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 
 import { IconButton, ProgressBar } from './../components';
 
-import { Lesson, LessonsController } from './../controllers';
+import { Lesson, LessonsController, Task } from './../controllers';
 
 import { TaskFactory } from './../tasks';
 
@@ -41,14 +41,16 @@ export const LessonScreen = () => {
 
   const params = useLocalSearchParams<Record<string, string>>();
 
-  const [lesson, setLesson] = useState<Lesson | undefined>(undefined);
+  const [lesson, setLesson] = useState<Lesson>(undefined);
+
+  const [tasks, setTasks] = useState<Task[]>([]);
 
   useEffect(() => {
     const fn = async () => {
       try {
-        const id = parseInt(params.id);
+        const controller = new LessonsController();
 
-        setLesson(await LessonsController.get(id));
+        setLesson(await controller.get(params.id));
       } catch (error) {
         console.error(error);
       }
@@ -57,11 +59,25 @@ export const LessonScreen = () => {
     fn();
   }, []);
 
+  useEffect(() => {
+    const fn = async () => {
+      try {
+        const controller = new LessonsController();
+
+        if (lesson != undefined) {
+          const tasks = await controller.getTasks(lesson.id);
+
+          setTasks(tasks);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fn();
+  }, [lesson]);
+
   const [progress, setProgress] = useState(0);
-
-  const currentTask = lesson?.tasks[progress];
-
-  const length = lesson?.tasks.length ?? 1;
 
   return (
     <SafeAreaView style={styles.container_1}>
@@ -85,16 +101,12 @@ export const LessonScreen = () => {
         />
       </View>
       <View style={styles.container_3}>
-        <ProgressBar value={progress / length} />
+        <ProgressBar value={0.25} />
       </View>
       <View style={styles.container_4}>
-        {currentTask != undefined ? (
-          TaskFactory.create(currentTask, () => {
-            setProgress((p) => p + 1);
-          })
-        ) : (
-          <></>
-        )}
+        {TaskFactory.create(tasks[progress], () => {
+          setProgress((p) => p + 1);
+        })}
       </View>
     </SafeAreaView>
   );
