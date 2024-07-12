@@ -1,61 +1,47 @@
 //
 
-import z from 'zod';
+import * as z from 'zod';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Controller } from './controller';
+
+import { Task, TasksController } from './tasks_controller';
 
 import { Lessons } from './../../data';
 
-import { TaskSchema } from './../tasks/task';
-
 export const LessonSchema = z.object({
-  id: z.number(),
+  id: z.string(),
   progress: z.number(),
-  tasks: z.array(TaskSchema),
+  taskIds: z.array(z.string()),
 });
 
 export type Lesson = z.infer<typeof LessonSchema>;
 
-export class LessonsController {
-  static readonly prefix = 'lesson:';
+export class LessonsController extends Controller<Lesson> {
+  constructor() {
+    super('lessons', LessonSchema);
+  }
 
-  static async sync() {
-    const keys = await this.keys();
+  async sync(): Promise<void> {
+    this.clear();
 
-    for (const key of keys) {
-      await AsyncStorage.removeItem(key);
-    }
+    const entries = [];
 
     for (const lesson of Lessons) {
-      LessonSchema.parse(lesson);
-
-      AsyncStorage.setItem(this.prefix + lesson.id, JSON.stringify(lesson));
+      entries.push([lesson.id.toString(), lesson]);
     }
+
+    this.setMany(entries);
   }
 
-  static async set(lesson: Lesson) {
-    LessonSchema.parse(lesson);
+  async getTasks(key: string): Promise<Task[]> {
+    const lesson = await this.get(key);
 
-    await AsyncStorage.setItem(this.prefix + lesson.id, JSON.stringify(lesson));
-  }
+    const controller = new TasksController();
 
-  static async get(id: number): Promise<Lesson> {
-    const json = (await AsyncStorage.getItem(this.prefix + id)) ?? '{}';
+    const tasks = lesson.taskIds.map((taskId) =>
+      controller.get(taskId.toString())
+    );
 
-    const object = JSON.parse(json);
-
-    LessonSchema.parse(object);
-
-    return object;
-  }
-
-  static async delete(id: number) {
-    await AsyncStorage.removeItem(this.prefix + id);
-  }
-
-  static async keys(): Promise<string[]> {
-    const keys = await AsyncStorage.getAllKeys();
-
-    return keys.filter((key) => key.startsWith(this.prefix));
+    return Promise.all(tasks);
   }
 }
