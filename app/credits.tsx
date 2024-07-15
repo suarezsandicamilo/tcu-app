@@ -1,5 +1,5 @@
 //
 
-import { SettingsScreen } from '@/screens';
+import { CreditsScreen } from '@/screens';
 
-export default SettingsScreen;
+export default CreditsScreen;
