@@ -7,25 +7,25 @@
       {
         "id": "1",
         "correct": true,
-        "picture": "240x240",
+        "image": "240x240",
         "sentence": "Oración 1"
       },
       {
         "id": "2",
         "correct": false,
-        "picture": "",
+        "image": "",
         "sentence": "Oración 2"
       },
       {
         "id": "3",
         "correct": false,
-        "picture": "",
+        "image": "",
         "sentence": "Oración 3"
       },
       {
         "id": "4",
         "correct": false,
-        "picture": "",
+        "image": "",
         "sentence": "Oración 4"
       }
     ]

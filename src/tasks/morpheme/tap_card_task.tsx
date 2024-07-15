@@ -6,7 +6,7 @@ import { speak } from './../../util';
 
 type Props = {
   instruction?: string;
-  picture?: string;
+  image?: string;
   sentence?: string;
   next?: () => void;
 };
@@ -16,7 +16,7 @@ export const MorphemeTapCardTask = (props: Props) => {
 
   return (
     <SpeechCard
-      picture={props.picture}
+      image={props.image}
       sentence={props.sentence}
       onPress={speak('', props.next)}
     />

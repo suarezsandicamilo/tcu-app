@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
 type Option = {
   id: string;
   correct?: boolean;
-  picture?: string;
+  image?: string;
   sentence?: string;
 };
 
@@ -42,7 +42,7 @@ export const MorphemeSelectCardTask = (props: Props) => {
         return (
           <SpeechCard
             key={option.id}
-            picture={option.picture}
+            image={option.image}
             sentence={option.sentence}
             style={styles.card}
             onPress={() => {

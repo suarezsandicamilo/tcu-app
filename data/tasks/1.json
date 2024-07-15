@@ -3,7 +3,7 @@
   "type": "morpheme/tap_card",
   "data": {
     "instruction": "Instrucción 1",
-    "picture": "",
+    "image": "",
     "sentence": "Oración 1"
   }
 }

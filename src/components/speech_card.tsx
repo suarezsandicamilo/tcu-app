@@ -10,7 +10,7 @@ import {
 
 import * as Speech from 'expo-speech';
 
-import { Pictures } from './../../assets/pictures';
+import { Images } from '../../assets/images';
 
 const styles = StyleSheet.create({
   image: {
@@ -24,14 +24,14 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-  picture?: string;
+  image?: string;
   sentence?: string;
   style?: StyleProp<ImageStyle>;
   onPress?: () => void;
 };
 
 export const SpeechCard = (props: Props) => {
-  const source = Pictures[props.picture ?? '240x240'];
+  const source = Images[props.image ?? '240x240'];
 
   return (
     <Pressable
