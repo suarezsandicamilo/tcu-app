@@ -2,7 +2,7 @@
 
 import { SpeechCard } from '@/components';
 
-import { speak } from './../../util';
+import { speak } from './../../speech';
 
 type Props = {
   instruction?: string;

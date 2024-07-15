@@ -8,9 +8,9 @@ import {
   StyleSheet,
 } from 'react-native';
 
-import * as Speech from 'expo-speech';
+import { Images } from './../../assets/images';
 
-import { Images } from '../../assets/images';
+import { speak } from './../speech';
 
 const styles = StyleSheet.create({
   image: {
@@ -36,9 +36,7 @@ export const SpeechCard = (props: Props) => {
   return (
     <Pressable
       onPress={() => {
-        Speech.speak(props.sentence ?? '', {
-          language: 'es',
-        });
+        speak(props.sentence)();
 
         if (props.onPress) {
           props.onPress();

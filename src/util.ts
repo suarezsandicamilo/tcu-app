@@ -1,7 +1,5 @@
 //
 
-import * as Speech from 'expo-speech';
-
 /**
  * Delays the process for an amount of time.
  *
@@ -42,20 +40,4 @@ export const shuffle = <T>(array: T[]): T[] => {
   }
 
   return result;
-};
-
-/**
- * Speaks a text with text-to-speech.
- *
- * @param text The text to speak.
- * @param next The operation to execute after speaking the text.
- * @returns
- */
-export const speak = (text?: string, next?: () => void) => {
-  return () => {
-    Speech.speak(text ?? '', {
-      language: 'es',
-      onDone: next,
-    });
-  };
 };

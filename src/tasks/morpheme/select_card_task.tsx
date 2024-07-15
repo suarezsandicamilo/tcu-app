@@ -4,7 +4,9 @@ import { StyleSheet, View } from 'react-native';
 
 import { SpeechCard } from '@/components';
 
-import { shuffle, speak } from './../../util';
+import { shuffle } from './../../util';
+
+import { speak } from './../../speech';
 
 const styles = StyleSheet.create({
   card: {
