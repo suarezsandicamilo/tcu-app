@@ -1,6 +1,15 @@
 //
 
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { useState } from 'react';
+
+import {
+  Modal,
+  Pressable,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 
 import { useRouter } from 'expo-router';
 
@@ -25,13 +34,50 @@ const styles = StyleSheet.create({
     flex: 15,
     justifyContent: 'space-evenly',
   },
+  modal_1: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+    zIndex: 1000,
+  },
+  modal_2: {
+    alignItems: 'center',
+    backgroundColor: '#f7f7f7',
+    borderRadius: 10,
+    elevation: 2,
+    height: 175,
+    justifyContent: 'center',
+    width: 350,
+  },
 });
 
 export const SettingsScreen = () => {
   const router = useRouter();
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   return (
     <SafeAreaView style={styles.container_1}>
+      <Modal transparent={true} visible={isModalVisible}>
+        <Pressable
+          style={styles.modal_1}
+          onPress={() => {
+            setIsModalVisible(false);
+          }}
+        >
+          <Pressable style={styles.modal_2} onPress={() => {}}>
+            <Text
+              style={{
+                color: '#000000',
+                fontSize: 20,
+                fontWeight: 'bold',
+              }}
+            >
+              Database Synchronized!
+            </Text>
+          </Pressable>
+        </Pressable>
+      </Modal>
       <View style={styles.container_2}>
         <IconButton
           name='arrow-left'
@@ -58,7 +104,7 @@ export const SettingsScreen = () => {
                 await controller.sync();
               }
 
-              console.log('Sync!');
+              setIsModalVisible(true);
             } catch (error) {
               console.error(error);
             }
