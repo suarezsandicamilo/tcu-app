@@ -2,14 +2,6 @@
 
 import { SafeAreaView, StyleSheet } from 'react-native';
 
-import { useRouter } from 'expo-router';
-
-import {
-  Gesture,
-  GestureDetector,
-  GestureHandlerRootView,
-} from 'react-native-gesture-handler';
-
 import { LessonsPath } from '@/components';
 
 const styles = StyleSheet.create({
@@ -22,23 +14,9 @@ const styles = StyleSheet.create({
 });
 
 export const HomeScreen = () => {
-  const router = useRouter();
-
-  const gesture = Gesture.Pan().onEnd(() => {
-    router.navigate('/settings');
-  });
-
   return (
     <SafeAreaView style={styles.container}>
-      <GestureHandlerRootView
-        style={{
-          flex: 1,
-        }}
-      >
-        <GestureDetector gesture={gesture}>
-          <LessonsPath />
-        </GestureDetector>
-      </GestureHandlerRootView>
+      <LessonsPath />
     </SafeAreaView>
   );
 };
