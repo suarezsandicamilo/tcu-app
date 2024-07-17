@@ -44,6 +44,7 @@ export const MorphemeSelectCardTask = (props: Props) => {
         return (
           <SpeechCard
             key={option.id}
+            highlightColor={option.correct ? '#c8e6c9ff' : '#ffcdd2ff'}
             image={option.image}
             sentence={option.sentence}
             style={styles.card}

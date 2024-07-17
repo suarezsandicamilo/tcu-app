@@ -16,6 +16,7 @@ export const MorphemeTapCardTask = (props: Props) => {
 
   return (
     <SpeechCard
+      highlightColor='#c8e6c9ff'
       image={props.image}
       sentence={props.sentence}
       onPress={speak('', props.next)}
