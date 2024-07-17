@@ -37,6 +37,20 @@ export const LessonsPath = () => {
             router.navigate(`/lesson?id=2`);
           }}
         />
+        <IconButton
+          name='gear'
+          style={styles.button}
+          onPress={() => {
+            router.navigate(`/settings`);
+          }}
+        />
+        <IconButton
+          name='book'
+          style={styles.button}
+          onPress={() => {
+            router.navigate(`/credits`);
+          }}
+        />
       </View>
     </ScrollView>
   );
