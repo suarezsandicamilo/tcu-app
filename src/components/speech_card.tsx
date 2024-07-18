@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react';
 
 import {
   Animated,
-  Easing,
   Image,
   ImageStyle,
   Pressable,
@@ -21,6 +20,7 @@ const styles = StyleSheet.create({
     borderColor: '#bfbfbf',
     borderWidth: 1,
     borderRadius: 8,
+    margin: 4,
   },
   image: {
     borderRadius: 8,
@@ -83,7 +83,7 @@ export const SpeechCard = (props: Props) => {
           {
             backgroundColor: ref.interpolate({
               inputRange: [0, 1],
-              outputRange: ['#ffffff00', props.highlightColor ?? '#c8e6c9ff'],
+              outputRange: ['#ffffff00', props.highlightColor ?? '#ffffff00'],
             }),
           },
         ]}

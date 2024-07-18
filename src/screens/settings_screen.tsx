@@ -66,13 +66,7 @@ export const SettingsScreen = () => {
           }}
         >
           <Pressable style={styles.modal_2} onPress={() => {}}>
-            <Text
-              style={{
-                color: '#000000',
-                fontSize: 20,
-                fontWeight: 'bold',
-              }}
-            >
+            <Text>
               Database Synchronized!
             </Text>
           </Pressable>
