@@ -13,7 +13,7 @@ import {
 
 import { useRouter } from 'expo-router';
 
-import { IconButton } from '@/components';
+import { Button } from '@/components';
 
 import { LessonsController, TasksController } from '@/controllers';
 
@@ -73,8 +73,8 @@ export const SettingsScreen = () => {
         </Pressable>
       </Modal>
       <View style={styles.container_2}>
-        <IconButton
-          name='arrow-left'
+        <Button
+          icon='arrow-left'
           style={{
             height: 40,
             width: 40,
@@ -85,8 +85,8 @@ export const SettingsScreen = () => {
         />
       </View>
       <View style={styles.container_3}>
-        <IconButton
-          name='database'
+        <Button
+          icon='database'
           onPress={async () => {
             try {
               const controllers = [

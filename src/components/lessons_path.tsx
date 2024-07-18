@@ -4,7 +4,7 @@ import { Dimensions, ScrollView, StyleSheet, View } from 'react-native';
 
 import { useRouter } from 'expo-router';
 
-import { IconButton } from './icon_button';
+import { Button } from './button';
 
 const styles = StyleSheet.create({
   button: {
@@ -25,27 +25,27 @@ export const LessonsPath = () => {
       }}
     >
       <View style={styles.container}>
-        <IconButton
+        <Button
           style={styles.button}
           onPress={() => {
             router.navigate(`/lesson?id=1`);
           }}
         />
-        <IconButton
+        <Button
           style={styles.button}
           onPress={() => {
             router.navigate(`/lesson?id=2`);
           }}
         />
-        <IconButton
-          name='gear'
+        <Button
+          icon='gear'
           style={styles.button}
           onPress={() => {
             router.navigate(`/settings`);
           }}
         />
-        <IconButton
-          name='book'
+        <Button
+          icon='book'
           style={styles.button}
           onPress={() => {
             router.navigate(`/credits`);

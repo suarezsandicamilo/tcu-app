@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet, View } from 'react-native';
 
 import { useRouter } from 'expo-router';
 
-import { IconButton } from '@/components';
+import { Button } from '@/components';
 
 const styles = StyleSheet.create({
   container_1: {
@@ -31,8 +31,8 @@ export const CreditsScreen = () => {
   return (
     <SafeAreaView style={styles.container_1}>
       <View style={styles.container_2}>
-        <IconButton
-          name='arrow-left'
+        <Button
+          icon='arrow-left'
           style={{
             height: 40,
             width: 40,

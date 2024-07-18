@@ -6,7 +6,7 @@ import { SafeAreaView, StyleSheet, View } from 'react-native';
 
 import { useLocalSearchParams, useRouter } from 'expo-router';
 
-import { IconButton, ProgressBar } from '@/components';
+import { Button, ProgressBar } from '@/components';
 
 import { Lesson, LessonsController, Task } from '@/controllers';
 
@@ -82,8 +82,8 @@ export const LessonScreen = () => {
   return (
     <SafeAreaView style={styles.container_1}>
       <View style={styles.container_2}>
-        <IconButton
-          name='arrow-left'
+        <Button
+          icon='arrow-left'
           style={{
             height: 40,
             width: 40,
@@ -92,8 +92,8 @@ export const LessonScreen = () => {
             router.back();
           }}
         />
-        <IconButton
-          name='question'
+        <Button
+          icon='question'
           style={{
             height: 40,
             width: 40,

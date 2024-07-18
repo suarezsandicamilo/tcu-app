@@ -18,17 +18,17 @@ const styles = StyleSheet.create({
 type Props = {
   children?: React.ReactNode;
   style?: StyleProp<ViewStyle>;
-  name?: keyof (typeof Icon)['glyphMap'];
   color?: string;
+  icon?: keyof (typeof Icon)['glyphMap'];
   size?: number;
   onPress?: () => unknown;
 };
 
-export const IconButton = (props: Props) => {
+export const Button = (props: Props) => {
   return (
     <Pressable style={[styles.container, props.style]} onPress={props.onPress}>
       <Icon
-        name={props.name ?? 'link'}
+        name={props.icon ?? 'star'}
         color={props.color ?? '#ffffff'}
         size={props.size}
       />
