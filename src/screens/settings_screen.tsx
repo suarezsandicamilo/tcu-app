@@ -2,18 +2,11 @@
 
 import { useState } from 'react';
 
-import {
-  Modal,
-  Pressable,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import { useRouter } from 'expo-router';
 
-import { Button } from '@/components';
+import { Button, Modal } from '@/components';
 
 import { LessonsController, TasksController } from '@/controllers';
 
@@ -34,43 +27,22 @@ const styles = StyleSheet.create({
     flex: 15,
     justifyContent: 'space-evenly',
   },
-  modal_1: {
-    alignItems: 'center',
-    flex: 1,
-    justifyContent: 'center',
-    zIndex: 1000,
-  },
-  modal_2: {
-    alignItems: 'center',
-    backgroundColor: '#f7f7f7',
-    borderRadius: 10,
-    elevation: 2,
-    height: 175,
-    justifyContent: 'center',
-    width: 350,
-  },
 });
 
 export const SettingsScreen = () => {
   const router = useRouter();
 
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
   return (
     <SafeAreaView style={styles.container_1}>
-      <Modal transparent={true} visible={isModalVisible}>
-        <Pressable
-          style={styles.modal_1}
-          onPress={() => {
-            setIsModalVisible(false);
-          }}
-        >
-          <Pressable style={styles.modal_2} onPress={() => {}}>
-            <Text>
-              Database Synchronized!
-            </Text>
-          </Pressable>
-        </Pressable>
+      <Modal
+        visible={visible}
+        onClose={() => {
+          setVisible(false);
+        }}
+      >
+        <Text>Database Synchronized!</Text>
       </Modal>
       <View style={styles.container_2}>
         <Button
@@ -98,7 +70,7 @@ export const SettingsScreen = () => {
                 await controller.sync();
               }
 
-              setIsModalVisible(true);
+              setVisible(true);
             } catch (error) {
               console.error(error);
             }
