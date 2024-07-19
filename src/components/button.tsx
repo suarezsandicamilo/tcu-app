@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-  children?: React.ReactNode;
   style?: StyleProp<ViewStyle>;
   color?: string;
   icon?: keyof (typeof Icon)['glyphMap'];
