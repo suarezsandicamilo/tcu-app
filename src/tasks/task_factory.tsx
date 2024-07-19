@@ -1,6 +1,10 @@
 //
 
-import { MorphemeSelectCardTask, MorphemeTapCardTask } from './morpheme';
+import {
+  MorphemeCountTask,
+  MorphemeSelectCardTask,
+  MorphemeTapCardTask,
+} from './morpheme';
 
 import { Task } from '@/controllers';
 
@@ -15,6 +19,8 @@ export class TaskFactory {
         return <MorphemeSelectCardTask next={next} {...task.data} />;
       case 'morpheme/tap_card':
         return <MorphemeTapCardTask next={next} {...task.data} />;
+      case 'morpheme/count':
+        return <MorphemeCountTask next={next} {...task.data} />;
       default:
         return <></>;
     }
