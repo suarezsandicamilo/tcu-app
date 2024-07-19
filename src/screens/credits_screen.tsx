@@ -1,6 +1,6 @@
 //
 
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { Linking, SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
 import { useRouter } from 'expo-router';
 
@@ -23,6 +23,13 @@ const styles = StyleSheet.create({
     flex: 15,
     justifyContent: 'space-evenly',
   },
+  link: {
+    color: 'blue',
+    textDecorationLine: 'underline',
+  },
+  paragraph: {
+    flexDirection: 'row',
+  },
 });
 
 export const CreditsScreen = () => {
@@ -42,7 +49,28 @@ export const CreditsScreen = () => {
           }}
         />
       </View>
-      <View style={styles.container_3}></View>
+      <View style={styles.container_3}>
+        <View style={styles.paragraph}>
+          <Text>Icons made by </Text>
+          <Text
+            style={styles.link}
+            onPress={() => {
+              Linking.openURL('https://www.freepik.com/');
+            }}
+          >
+            Freepik
+          </Text>
+          <Text> from </Text>
+          <Text
+            style={styles.link}
+            onPress={() => {
+              Linking.openURL('https://www.flaticon.com/');
+            }}
+          >
+            Flaticon
+          </Text>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
